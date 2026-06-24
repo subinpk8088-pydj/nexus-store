@@ -1,28 +1,54 @@
+import "./Footer.css";
+
 function Footer() {
   return (
-    <footer
-      style={{
-        padding: "60px 20px",
-        textAlign: "center",
-        borderTop: "1px solid #eee",
-        marginTop: "100px",
-      }}
-    >
-      <h3 style={{ marginBottom: "10px" }}>NEXUS</h3>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-brand">
+          <h2>NEXUS</h2>
 
-      <p style={{ color: "#666" }}>
-        Premium Electronics Experience
-      </p>
+          <p>
+            Premium electronics crafted for
+            performance, innovation, and
+            everyday excellence.
+          </p>
+        </div>
 
-      <p
-        style={{
-          marginTop: "20px",
-          color: "#999",
-          fontSize: "0.9rem",
-        }}
-      >
-        © 2026 Nexus Store. All rights reserved.
-      </p>
+        <div className="footer-links">
+          <div className="footer-column">
+            <h4>Store</h4>
+
+            <a href="#">Audio</a>
+            <a href="#">Wearables</a>
+            <a href="#">Computing</a>
+            <a href="#">Accessories</a>
+          </div>
+
+          <div className="footer-column">
+            <h4>Support</h4>
+
+            <a href="#">Help Center</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Contact</a>
+          </div>
+
+          <div className="footer-column">
+            <h4>Company</h4>
+
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>
+          © 2026 Nexus Store. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }
