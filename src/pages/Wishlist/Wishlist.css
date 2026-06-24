@@ -1,0 +1,156 @@
+.wishlist {
+  max-width: 1400px;
+  margin: auto;
+  padding: 100px 40px;
+}
+
+.wishlist-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wishlist-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.wishlist-header p {
+  color: #6b7280;
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.wishlist-card {
+  background: #f8f9fb;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.wishlist-card:hover {
+  transform: translateY(-8px);
+}
+
+.wishlist-image {
+  height: 300px;
+  overflow: hidden;
+}
+
+.wishlist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: 0.4s;
+}
+
+.wishlist-card:hover img {
+  transform: scale(1.05);
+}
+
+.wishlist-info {
+  padding: 24px;
+}
+
+.wishlist-info span {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.wishlist-info h3 {
+  margin: 10px 0;
+}
+
+.wishlist-info p {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.wishlist-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.view-btn,
+.remove-btn,
+.shop-btn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.view-btn {
+  background: #111827;
+  color: white;
+}
+
+.remove-btn {
+  background: #e5e7eb;
+}
+
+.view-btn:hover,
+.remove-btn:hover,
+.shop-btn:hover {
+  transform: translateY(-2px);
+}
+
+.empty-wishlist {
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+.empty-wishlist h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.empty-wishlist p {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.shop-btn {
+  background: #111827;
+  color: white;
+}
+
+@media (max-width: 1100px) {
+  .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .wishlist {
+    padding: 100px 20px;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wishlist-header h1,
+  .empty-wishlist h1 {
+    font-size: 2.3rem;
+  }
+
+  .wishlist-actions {
+    flex-direction: column;
+  }
+}
