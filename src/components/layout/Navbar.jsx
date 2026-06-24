@@ -1,5 +1,9 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  Link,
+  useLocation,
+} from "react-router-dom";
+
 import {
   FiMenu,
   FiX,
@@ -19,18 +23,78 @@ function Navbar() {
   const { cartCount } = useCart();
   const { wishlist } = useWishlist();
 
+  const location = useLocation();
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener(
+      "resize",
+      handleResize
+    );
+
+    return () =>
+      window.removeEventListener(
+        "resize",
+        handleResize
+      );
+  }, []);
+
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="logo">
+        <Link
+          to="/"
+          className="logo"
+          onClick={closeMenu}
+        >
           NEXUS
         </Link>
 
-        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <Link to="/">Home</Link>
-          <Link to="/shop">Store</Link>
-          <Link to="/wishlist">Wishlist</Link>
-          <Link to="/cart">Cart</Link>
+        <nav
+          className={`nav-links ${
+            menuOpen ? "active" : ""
+          }`}
+        >
+          <Link
+            to="/"
+            onClick={closeMenu}
+          >
+            Home
+          </Link>
+
+          <Link
+            to="/shop"
+            onClick={closeMenu}
+          >
+            Store
+          </Link>
+
+          <Link
+            to="/wishlist"
+            onClick={closeMenu}
+          >
+            Wishlist
+          </Link>
+
+          <Link
+            to="/cart"
+            onClick={closeMenu}
+          >
+            Cart
+          </Link>
         </nav>
 
         <div className="nav-actions">
@@ -41,6 +105,7 @@ function Navbar() {
           <Link
             to="/wishlist"
             className="icon-btn cart-btn"
+            onClick={closeMenu}
           >
             <FiHeart />
 
@@ -52,6 +117,7 @@ function Navbar() {
           <Link
             to="/cart"
             className="icon-btn cart-btn"
+            onClick={closeMenu}
           >
             <FiShoppingBag />
 
