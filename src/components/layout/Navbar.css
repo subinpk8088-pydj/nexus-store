@@ -4,7 +4,9 @@
   z-index: 1000;
 
   backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+
+  background: rgba(255, 255, 255, 0.85);
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -13,8 +15,9 @@
   max-width: 1400px;
   margin: auto;
 
-  padding: 0 40px;
   height: 72px;
+
+  padding: 0 40px;
 
   display: flex;
   align-items: center;
@@ -24,18 +27,25 @@
 .logo {
   font-size: 1.3rem;
   font-weight: 700;
+
   letter-spacing: 4px;
+
+  color: #111827;
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 40px;
 }
 
 .nav-links a {
   font-size: 0.95rem;
   font-weight: 500;
-  transition: 0.3s;
+
+  color: #111827;
+
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -51,33 +61,51 @@
 .icon-btn {
   position: relative;
 
-  background: transparent;
-  border: none;
+  width: 40px;
+  height: 40px;
 
-  font-size: 1.2rem;
-  color: #111;
+  border: none;
+  background: transparent;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  font-size: 1.2rem;
+
+  color: #111827;
+
   cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cart-btn {
+  position: relative;
 }
 
 .badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
 
-  width: 18px;
+  top: -6px;
+  right: -6px;
+
+  min-width: 18px;
   height: 18px;
 
-  border-radius: 50%;
+  padding: 0 4px;
 
-  background: black;
-  color: white;
+  border-radius: 999px;
 
-  font-size: 0.7rem;
+  background: #000;
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 600;
 
   display: flex;
   align-items: center;
@@ -87,12 +115,36 @@
 .menu-btn {
   display: none;
 
-  background: none;
+  width: 40px;
+  height: 40px;
+
   border: none;
+  background: transparent;
 
   font-size: 1.4rem;
+
+  color: #111827;
+
   cursor: pointer;
 }
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 992px) {
+  .navbar-container {
+    padding: 0 25px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+}
+
+/* ==========================
+   MOBILE MENU
+========================== */
 
 @media (max-width: 768px) {
   .navbar-container {
@@ -100,7 +152,9 @@
   }
 
   .menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
@@ -112,14 +166,19 @@
     width: 100%;
     height: calc(100vh - 72px);
 
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(255, 255, 255, 0.98);
+
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
+    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    transition: 0.35s ease;
+    gap: 35px;
+
+    transition: left 0.35s ease;
   }
 
   .nav-links.active {
@@ -128,30 +187,38 @@
 
   .nav-links a {
     font-size: 1.2rem;
+    font-weight: 600;
   }
 }
 
-.cart-btn {
-  position: relative;
-}
+/* ==========================
+   SMALL MOBILE
+========================== */
 
-.badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+  }
 
-  min-width: 18px;
-  height: 18px;
+  .nav-actions {
+    gap: 8px;
+  }
 
-  border-radius: 50%;
+  .icon-btn,
+  .menu-btn {
+    width: 36px;
+    height: 36px;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .icon-btn {
+    font-size: 1.1rem;
+  }
 
-  font-size: 11px;
-  font-weight: 600;
+  .badge {
+    min-width: 16px;
+    height: 16px;
 
-  background: #000;
-  color: #fff;
+    font-size: 10px;
+  }
 }

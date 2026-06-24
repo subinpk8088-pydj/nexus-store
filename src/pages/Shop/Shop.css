@@ -4,6 +4,10 @@
   padding: 100px 40px;
 }
 
+/* ==========================
+   HEADER
+========================== */
+
 .shop-header {
   text-align: center;
   margin-bottom: 50px;
@@ -16,7 +20,12 @@
 
 .shop-header p {
   color: #6b7280;
+  line-height: 1.8;
 }
+
+/* ==========================
+   FILTERS
+========================== */
 
 .filters {
   display: flex;
@@ -27,14 +36,22 @@
 .filters input,
 .filters select {
   padding: 15px 20px;
+
   border: 1px solid #ddd;
   border-radius: 12px;
+
   outline: none;
+
+  font-size: 0.95rem;
 }
 
 .filters input {
   flex: 1;
 }
+
+/* ==========================
+   PRODUCTS GRID
+========================== */
 
 .shop-grid {
   display: grid;
@@ -44,10 +61,14 @@
 
 .shop-card {
   background: #f8f9fb;
+
   border-radius: 24px;
   overflow: hidden;
-  transition: 0.3s ease;
+
   color: inherit;
+  text-decoration: none;
+
+  transition: 0.3s ease;
 }
 
 .shop-card:hover {
@@ -55,8 +76,18 @@
 }
 
 .shop-card img {
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
   object-fit: cover;
+
+  display: block;
+
+  transition: 0.4s ease;
+}
+
+.shop-card:hover img {
+  transform: scale(1.05);
 }
 
 .shop-info {
@@ -65,29 +96,48 @@
 
 .shop-info span {
   color: #6b7280;
+  font-size: 0.9rem;
 }
 
 .shop-info h3 {
   margin: 10px 0;
+  font-size: 1.2rem;
 }
 
 .shop-info p {
   font-weight: 700;
 }
 
+/* ==========================
+   TABLET
+========================== */
+
 @media (max-width: 1100px) {
   .shop-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .shop-header h1 {
+    font-size: 3rem;
+  }
 }
+
+/* ==========================
+   MOBILE
+========================== */
 
 @media (max-width: 700px) {
   .shop {
-    padding: 100px 20px;
+    padding: 90px 20px;
   }
 
   .filters {
     flex-direction: column;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
   }
 
   .shop-grid {
@@ -95,6 +145,20 @@
   }
 
   .shop-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width: 480px) {
+  .shop-header h1 {
+    font-size: 2rem;
+  }
+
+  .shop-info {
+    padding: 20px;
   }
 }
